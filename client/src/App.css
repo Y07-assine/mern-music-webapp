@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Raleway&family=Rubik&display=swap');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;   
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.font-baloo{
+  font-family: "Baloo Thambi 2",cursive;
+}
+
+.font-rale{
+  font-family: "Raleway",cursive;
+}
+
+.font-rubik{
+  font-family: "Rubik",cursive;
+}
+.font-crimson{
+  font-family: 'Crimson Pro', serif;
+}
+
+.container{
+  max-width: 1240px;
+  margin: auto;
+}
+
+.nav{
+  background: transparent;
+  height: 5rem;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(5, 5, 5);
+}
+
+.nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav .item {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 20px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logo {
+  width: 200px;
+}
+
+.header{
+  text-align: center;
+  position: relative;
+  background: url('./images/headerx.jpg');
+  background-position: 50%;
+  background-size: cover;
+  border-bottom-right-radius: 150% 40%;
+  border-bottom-left-radius: 150% 40%;
+}
+
+.description{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content{
+  display: block;
+}
+
+.description h1{
+  font-size: 38px;
+  color: rgb(37, 37, 37);
+}
+.description h5{
+  font-size: 22px;
+  color: rgb(75, 74, 74);
+  padding: 0 32%;
+}
+@media screen and (min-width: 1200px){
+.description h1{
+    font-size: 52px;
+}
+}
+
+.news{
+  margin-top: 5rem;
+}
+
+img{
+  width: 100%;
+}
+
+.row {
+  margin-right: 5rem;
+  margin-left: 5rem;
+  display: flex;
+}
+
+@media only screen and (max-width: 1000px) {
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+}
+@media only screen and (max-width: 600px) {
+  .row{
+    display: block;
+  }
+  }
+.text__news{
+  color: black;
+  height: 150px;
+}
+.title{
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+.lgfgYE{
+  display: flex;
+}
+.lgfgYE::after {
+  content: "";
+  border-bottom: 0.15rem solid rgb(35, 180, 113);
+  flex: 1 1 0%;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  position: relative;
+  top: calc(-0.375rem);
+}
+
+.content__news{
+  text-transform: none;
+  display: block;
+  margin-bottom: 8px;
+  overflow: hidden;
+  width: 100%;
+  font-weight: 400;
+  color: #434343;
+  height: 220px;
+  line-height: 2rem;
+  margin-right: 1rem;
+  padding: 0 1rem;
+}
+@media only screen and (max-width: 1100px) {
+  .content__news{
+    height: 150px;
+  }
+  }
+.details__news{
+  padding-top: 0;
+}
+
+.details__news img{
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: whitesmoke;
+  padding:7px;
+}
+@media only screen and (max-width:1100px) {
+  .grid-container {
+      grid-template-columns: auto auto;
+  }
+}
+@media only screen and (max-width:630px) {
+  .grid-container {
+      grid-template-columns: auto;
+  }
+}
+
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+}
+
+.news .description{
+  margin-right: 3rem;
+}
+
+.quote__section{
+  width: 80%;
+  margin: 0 auto;
+  padding: 2px;
+  background-color: rgb(35, 180, 113); 
+  background-repeat: no-repeat;
+  background-size: 0 2px, 0 100%, 0% 2px;
+  background-position: top center, top center, bottom center;
+  position: relative;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.quote__section-content{
+  background: white;
+  padding: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font: 700 18px Merriweather,serif;
+}
+
+.quote__section-label{
+  background-color: #ffffff;
+  color: #737373;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 0 20px;
+  position: absolute;
+  right: 40%;
+  top: -4px;
+  z-index: 0;
+}
+.author{
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0px;
+  color: black;
+}
+.quote__author{
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0px;
+  color: black;
+}
+.quote__author-status{
+  color: rgb(148, 147, 147);
+}
+
+.albums{
+  margin-top: 0rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
+
+.album-title{
+  margin-top: 2rem !important;
+}
+
+.album__name{
+  font-family: "Baloo Thambi 2",cursive;
+  display: block;
+}
+.album__artist{
+    display: block;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
+.album__date{
+  color: #666;
+  display: block;
+  font-weight: 500;
+}
+
+.item__album{
+  width: 208px;
+  margin-right: 20px;
+}
+@media only screen and (max-width:1200px) {
+  .item__album{
+    width: 172px;
+    margin-right: 20px;
+  }
+}
