@@ -8,6 +8,7 @@ const ListNews = ()=>{
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [data,setData] = useState([]);
+    const [latest,setLatest] = useState([]);
 
     useEffect(()=>{
         setLoading(true);
@@ -15,16 +16,16 @@ const ListNews = ()=>{
             .get(newsListURL)
             .then(res=>{
                 setData(res.data);
-                console.log(res.data)
+                setLatest(res.data[0])
                 setLoading(false);
             })
             .catch(err=>{
                 setError(err);
             });
-        });
+        },[]);
     return(
         <>
-
+            <LatestNews title={latest.title} image={latest.image} />
             <section className="py-5 news" id="news">
                 <div className="row grid-container">
                     {data.slice(1).map((news)=>(

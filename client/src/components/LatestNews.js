@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const LatestNews = ({title,image}) => {
    return (
        <section className=" news">
@@ -12,7 +13,7 @@ const LatestNews = ({title,image}) => {
                        <a href="#"><h2 className="text__news font-rale">{title}</h2></a>   
                    </div>
                    <div className="col-sm-8 item-news">
-                       <img src={image} alt="latest news" height={300} width={900}/>
+                       <img src={'/images/'+image} alt="latest news" height={300} width={900}/>
                    </div>
                </div>
            </div>

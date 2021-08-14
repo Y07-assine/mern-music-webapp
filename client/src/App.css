@@ -77,9 +77,8 @@ ul {
 .header{
   text-align: center;
   position: relative;
-  background: url('./images/headerx.jpg');
-  background-position: 50%;
-  background-size: cover;
+  background-position: 50% !important;
+  background-size: cover !important;
   border-bottom-right-radius: 150% 40%;
   border-bottom-left-radius: 150% 40%;
 }

@@ -11,7 +11,7 @@ const News = ({news}) => {
                 </a> 
             </div>
             <div className="details__news">
-                <img src={image} alt="news" width={550} height={600} />
+                <img src={'/images/'+image} alt="news" width={550} height={600} />
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import news from '../models/news.js';
 
 
 export const getNews = (req,res)=>{
-    news.find()
+    news.find().sort({createdAt:-1})
         .then((result)=>{
            res.status(200).json(result); 
         })
@@ -19,7 +19,7 @@ export const addNews = (req,res) =>{
         source:req.body.source
     })
     if(req.file){
-        Newnews.image= req.file.path
+        Newnews.image= req.file.filename
     }
 
     Newnews.save()
