@@ -25,7 +25,7 @@ const ListNews = ()=>{
         },[]);
     return(
         <>
-            <LatestNews title={latest.title} image={latest.image} />
+            <LatestNews title={latest.title} image={latest.image} creator={latest.creator} createdAt={latest.createdAt} />
             <section className="py-5 news" id="news">
                 <div className="row grid-container">
                     {data.slice(1).map((news)=>(
