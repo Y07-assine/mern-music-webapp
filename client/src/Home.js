@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import ListNews from './components/ListNews'
 import Quote from './components/Quote'
+import Album from './components/api/Album'
 
 const Home = ()=>{
     return(
@@ -10,6 +11,7 @@ const Home = ()=>{
             <Header />
             <ListNews />
             <Quote />
+            <Album />
         </>
     )
 }
