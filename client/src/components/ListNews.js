@@ -3,6 +3,8 @@ import axios from 'axios';
 import News from './News';
 import LatestNews from './LatestNews';
 import { newsListURL } from '../constant';
+import { Loader } from 'semantic-ui-react';
+
 
 const ListNews = ()=>{
     const [loading,setLoading] = useState(false);
@@ -21,15 +23,19 @@ const ListNews = ()=>{
             })
             .catch(err=>{
                 setError(err);
+                setLoading(false);
             });
         },[]);
     return(
         <>
+        { !loading && (
+            <Loader active inline='centered' />
+        )}
             <LatestNews title={latest.title} image={latest.image} creator={latest.creator} createdAt={latest.createdAt} />
             <section className="py-5 news" id="news">
                 <div className="row grid-container">
                     {data.slice(1).map((news)=>(
-                        <News key={news.id} news={news} />
+                        <News key={news._id} news={news} />
                     ))}
                 </div>
             </section>
