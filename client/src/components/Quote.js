@@ -34,7 +34,7 @@ const Quote = () =>{
                     <p>"{data.quote} "</p>
                     <p className="quote__author">{data.author}, <span className="quote__author-status">Rapper</span></p>
                 </div>
-                <span class="quote__section-label">PUNSHLINE OF THE DAY</span>
+                <span class="quote__section-label">PUNCHLINE OF THE DAY</span>
             </div>
         </section>
         </>
