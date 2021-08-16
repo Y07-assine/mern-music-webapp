@@ -5,6 +5,7 @@ import cors from "cors";
 import newsRoutes from './routes/news.js';
 import quoteRoutes from './routes/quote.js';
 import albumRoutes from './routes/album.js';
+import videoClipRoutes from "./routes/videoClip.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use('/news',newsRoutes);
 app.use('/quote',quoteRoutes);
 app.use('/album',albumRoutes);
+app.use('/videoclip',videoClipRoutes);
 const CONNECTION_URL = 'mongodb+srv://yassine:tuto1234@cluster0.skstc.mongodb.net/music-app?retryWrites=true&w=majority';
 const port = process.env.PORT || 5000;
 
