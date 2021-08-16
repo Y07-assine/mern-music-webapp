@@ -8,7 +8,7 @@ const Playlist=()=>{
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [data,setData] = useState([]);
-    const [image,setImage] = useState();
+    const [image,setImage] = useState([]);
 
     useEffect(() => {
         const spotify = Credentials();
@@ -24,7 +24,7 @@ const Playlist=()=>{
           })
           .then(res =>{
               setToken(res.data.access_token);
-              axios('https://api.spotify.com/v1/playlists/37i9dQZF1DWYtEjm4ihp5w/tracks?offset=0&limit=7&market=US',{
+              axios('https://api.spotify.com/v1/playlists/37i9dQZF1DWYtEjm4ihp5w/tracks?offset=0&limit=6&market=US',{
                 method:'GET',
                 headers:{
                     'Content-Type':'application/json',
@@ -45,12 +45,16 @@ const Playlist=()=>{
                     }
                     })
                     .then(imageresponse =>{
-                        setImage(imageresponse.data[0])
+                        setImage(imageresponse.data[0].url)
                         console.log(image)
                     })
                     .catch(error=>{
                         setError(error)
                     });
+            axios('https://www.breakingbadapi.com/api/characters')
+                    .then((result)=>{
+                        console.log(result)
+                    })
             })
           .catch((error)=>{
               setError(error);
