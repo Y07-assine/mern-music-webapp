@@ -4,6 +4,7 @@ import Header from './components/Header'
 import ListNews from './components/ListNews'
 import Quote from './components/Quote'
 import Album from './components/api/Album'
+import Playlist from './components/api/Playlist'
 
 const Home = ()=>{
     return(
@@ -12,6 +13,7 @@ const Home = ()=>{
             <ListNews />
             <Quote />
             <Album />
+            <Playlist />
         </>
     )
 }

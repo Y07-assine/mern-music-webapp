@@ -4,6 +4,8 @@ import { albumURL } from '../../constant';
 import { Credentials } from './Credentials';
 import { Loader } from 'semantic-ui-react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import "slick-carousel/slick/slick-theme.css";
 
 
 
@@ -101,7 +103,7 @@ const Album = ()=>{
             { loading && (
             <Loader active inline='centered' />
             )}
-            <Slider {...settings}>
+            <Slider {...settings}>        
             {data.map((album)=>(
                 <div className="item__album">
                     <a href='#'><img src={album.images[0].url} className="image__album" />
