@@ -51,10 +51,6 @@ const Playlist=()=>{
                     .catch(error=>{
                         setError(error)
                     });
-            axios('https://www.breakingbadapi.com/api/characters')
-                    .then((result)=>{
-                        console.log(result)
-                    })
             })
           .catch((error)=>{
               setError(error);

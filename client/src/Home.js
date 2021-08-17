@@ -5,6 +5,7 @@ import ListNews from './components/ListNews'
 import Quote from './components/Quote'
 import Album from './components/api/Album'
 import Playlist from './components/api/Playlist'
+import VideoClipsList from './components/VideoClipList'
 
 const Home = ()=>{
     return(
@@ -14,6 +15,7 @@ const Home = ()=>{
             <Quote />
             <Album />
             <Playlist />
+            <VideoClipsList />
         </>
     )
 }

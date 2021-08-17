@@ -91,7 +91,6 @@ const Album = ()=>{
               console.log(error);
           })
     }, [])
-    console.log(data)
 
     return(
 

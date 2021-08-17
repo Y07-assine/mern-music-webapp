@@ -405,6 +405,14 @@ img{
 .image_item{
   width: 100px;
 }
+
+.clips{
+  margin: 1rem 5rem;
+}
+.videoClip{
+  width: 360px;
+  height: 200px;
+}
 tbody {
   display: table-row-group;
   vertical-align: middle;
