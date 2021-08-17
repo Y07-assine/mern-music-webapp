@@ -305,6 +305,11 @@ img{
   margin-right: 5rem;
   margin-left: 5rem;
 }
+.clips{
+  margin-top: 2rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
 
 .album-title{
   margin-top: 1rem !important;
@@ -406,9 +411,7 @@ img{
   width: 100px;
 }
 
-.clips{
-  margin: 1rem 5rem;
-}
+
 .videoClip{
   width: 360px;
   height: 200px;

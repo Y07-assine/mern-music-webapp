@@ -34,7 +34,7 @@ const VideoClipsList = ()=>{
           dots: true,
           infinite: true,
           speed: 300,
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 4,
           responsive: [
               {
@@ -65,21 +65,23 @@ const VideoClipsList = ()=>{
         }
 
     return(
-        <section className="py-5 news" id="clips">
-            <div className="lgfgYE clips">
-                <span className="title">LAST CLIPS</span>
-            </div> 
-            { loading && (
-                <Loader active inline='centered' />
-            )}
-            <div className="container youtubeClips">
-            <Slider {...settings}>
-            {data.map((video)=>(
-                <div className="videoClip">
-                    <ReactPlayer url={`https://www.youtube.com/watch?v=${video.youtubeId}`} />
+        <section className="clips" id="clips">
+            <div className="container">
+                <div className="lgfgYE clip ">
+                    <span className="title">LAST CLIPS</span>
+                </div> 
+                { loading && (
+                    <Loader active inline='centered' />
+                )}
+                <div className="container">
+                <Slider {...settings}>
+                {data.map((video)=>(
+                    <div className="videoClip">
+                        <ReactPlayer url={`https://www.youtube.com/watch?v=${video.youtubeId}`} width='95%' height='200px' />
+                    </div>
+                ))}
+                </Slider>
                 </div>
-            ))}
-            </Slider>
             </div>
         </section>
     )
