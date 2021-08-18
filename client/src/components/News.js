@@ -4,7 +4,7 @@ import React from 'react';
 const News = ({news}) => {
     const {title,image} = news
     return (
-        <div>
+        <div className="news__card">
             <div className="content__news">
                 <a href="#">
                     <h2 className="text__news font-rale">{title}</h2>

@@ -9,7 +9,7 @@ const Artist = (artist)=>{
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [album,setAlbum]=useState([]);
-    const [artistDetails,setArtistDetails] = useState([])
+    const [data,setdata] = useState()
 
 
     useEffect(() => {
@@ -26,23 +26,6 @@ const Artist = (artist)=>{
           })
           .then(res =>{
               setToken(res.data.access_token);
-              axios(`https://api.spotify.com/v1/artists/${artistId}`,{
-                    method:'GET',
-                    headers:{
-                        'Content-Type':'application/json',
-                        'Authorization':'Bearer ' + token
-                    }
-                })
-                .then(res=>{
-                    console.log(res.data)
-                    setArtistDetails(res.data)
-                    setLoading(false)
-                    
-                })
-                .catch(error=>{
-                    setError(error)
-                    setLoading(false)
-                });
                 axios(`https://api.spotify.com/v1/artists/${artistId}/albums`,{
                     method:'GET',
                     headers:{
@@ -58,37 +41,36 @@ const Artist = (artist)=>{
                         setError(error)
                         setLoading(false)
                     });
+                axios(`https://api.spotify.com/v1/artists/${artistId}`,{
+                    method:'GET',
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':'Bearer ' + token
+                    }
+                })
+                .then(res=>{
+                    setdata(res.data)
+                    console.log(data)
+                    setLoading(false)
+                    
+                })
+                .catch(error=>{
+                    setError(error)
+                    setLoading(false)
+                });
         })
         .catch(error=>{
             setError(error)
         });
-    }, [])
-    const sectionStyle = {
-        background: "linear-gradient(white, black)",
-        background : "#000 url("+(artistDetails.images ? artistDetails.images[2].url : null) + ")" +"no-repeat center center/cover"
-    };
+    }, []);
+    
     return(
         <>
             <Header />
-            <section className="artist__details" style={ sectionStyle } >
-                <div className="container">
-                <div className="row header_with_cover_artist">
-                    <div className=" artist__description">
-                        <img src={artistDetails.images ? artistDetails.images[0].url : null}  />
-                    </div>
-                    <div className=" item-news artist__infos">
-                        <h3 class="artist-title">
-                            <span className="artist__status">{artistDetails.type}</span>
-                            <span className="artist__name">{artistDetails.name}</span>
-                            <span><span className="followers">{artistDetails.followers}</span> Followers</span>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            </section>
+            
             <section className="artist__projects">
                 <div className="row top__projects">
-                <h3 class="tracklist border">Popular {artistDetails.name} Projects</h3>
+                <h3 class="tracklist border">Popular  Projects</h3>
                     <div className="grid-container">
                         {album.map((project)=>(
                             <div>
