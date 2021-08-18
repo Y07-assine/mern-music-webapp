@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Icon from './Icon';
 
 
@@ -9,7 +9,7 @@ import Icon from './Icon';
          setClick(!click);
      }
     return (
-        <header className="header" style={{ background:`url("/images/headerx.jpg")` }} >
+        <header className="header">
             <div className="container nav">
                 <div className="navContainer">
                     <a href="/"><img src='/images/logo.png' alt="apollo for music" width={200} height={100} /></a>
@@ -27,14 +27,6 @@ import Icon from './Icon';
                 </div>
             </div>
             <hr />
-            <div className="container">
-                <div className="description">
-                <div className="content">
-                    <h1>Moroccan Hip-Hop news</h1>
-                    <h5>Apollo For Music is a community initiative,to highlight and share the latest Hip-Hop topics, and support the new generation.</h5>
-                </div>
-                </div>
-            </div>
         </header>
     )
 }

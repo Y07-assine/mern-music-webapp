@@ -152,9 +152,14 @@ img{
   margin-left: 10rem;
   display: flex;
 }
+.cover{
+  margin-right: 5rem;
+  margin-left: 5rem;
+  display: flex;
+}
 
 @media only screen and (max-width: 1000px) {
-.row{
+.row,.cover{
   margin-right: 0;
   margin-left: 0;
 }
@@ -330,7 +335,25 @@ img{
   display: block;
   font-weight: 400;
 }
-
+.header_with_cover_art {
+  position: relative;
+  background: rgba(0,0,0,.6);
+  padding: 2.25rem 0 1.5rem 0;
+  z-index: 0;
+  color: #fff;
+}
+.header_with_cover_artist{
+position: relative;
+  background: rgba(0,0,0,.6);
+  padding: 2.25rem 0 1.5rem 0;
+  z-index: 0;
+  color: #fff;
+  display: flex;
+}
+.album__format{
+color: #fffb06;
+text-transform: uppercase;
+}
 .item__album{
   width: 95% !important;
   margin-right: 20px;
@@ -345,7 +368,90 @@ img{
     margin-right: 20px;
   }
 }
+.album__details,.artist__details{
+  margin-top: -0.6rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
 
+.album__description{
+  margin-top: 3rem;
+}
+.album__description img{
+  border: yellow solid;
+    border-radius: 3%;
+}
+@media only screen and (max-width: 767px) {
+.album__description img{
+  width:70% ;
+}
+}
+@media only screen and (max-width: 1000px) {
+  .albums,
+  .album__details{
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  }
+  .album__name{
+    font-family: "Baloo Thambi 2",cursive;
+    display: block;
+  }
+  .album__artist{
+      display: block;
+      font-size: 1rem;
+      font-weight: 100;
+      margin-bottom: 1rem;
+  }
+  .album__date{
+    color: #666;
+    display: block;
+    font-weight: 500;
+  }
+  .album__description .album__name{
+    font-size: 30px;
+  }
+  
+  .album__description .album__artist{
+    font-size: 28px;
+  }
+  
+  .album__description .album__date{
+    color: #ddd;
+    font-size: 14px;
+  }
+  .album__tracklist{
+    margin-top: 3rem;
+  }
+  .artist__name{
+    font-family: "Baloo Thambi 2",cursive;
+    display: block;
+    font-size: 34px;
+  }
+  .artist__status{
+    color: #fffb06;
+      text-transform: uppercase;
+  }
+  
+  .tracklist{
+      font-family: "Lobster Two";
+      text-transform: none;
+      font-weight: 400;
+      font-size: 30px;
+  }
+  @media (min-width: 768px){
+    .tracklist p {
+        columns: 2;
+    }
+    }
+    
+    .tracklist__item{
+      margin: 1rem;
+      font-size: 20px;
+      column-count: 2;
+    }
+    
 .card {
   cursor: pointer;
   background-color: transparent;

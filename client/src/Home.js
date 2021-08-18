@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Header from './components/Header'
+import HomeHeader from './components/HomeHeader'
 import ListNews from './components/ListNews'
 import Quote from './components/Quote'
 import Album from './components/api/Album'
@@ -10,7 +10,7 @@ import VideoClipsList from './components/VideoClipList'
 const Home = ()=>{
     return(
         <>
-            <Header />
+            <HomeHeader />
             <ListNews />
             <Quote />
             <Album />

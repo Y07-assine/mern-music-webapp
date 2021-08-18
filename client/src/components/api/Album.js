@@ -6,6 +6,7 @@ import { Loader } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom'
 
 
 
@@ -61,6 +62,7 @@ const Album = ()=>{
           })
           .then(res =>{
               setToken(res.data.access_token);
+              console.log(res.data.access_token)
               axios
                 .get(albumURL)
                 .then(albumres =>{
@@ -74,6 +76,7 @@ const Album = ()=>{
                         })
                         .then(response=>{
                             setData(data=>[...data,response.data])
+                            console.log(response.data)
                             setLoading(false)
                         })
                         .catch(error=>{
@@ -105,7 +108,7 @@ const Album = ()=>{
             <Slider {...settings}>        
             {data.map((album)=>(
                 <div className="item__album">
-                    <a href='#'><img src={album.images[0].url} className="image__album" />
+                    <Link to={`/album/${album.id}`}><img src={album.images[0].url} className="image__album" />
                     <div class="text-center">
                         <h3 class="album-title">
                             <span className="album__name">{album.name}</span>
@@ -113,7 +116,7 @@ const Album = ()=>{
                             <span className="album__date">{album.release_date}</span>
                         </h3>
                     </div>
-                    </a>
+                    </Link>
                 </div>
             ))}
             </Slider>
