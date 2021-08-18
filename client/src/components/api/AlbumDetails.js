@@ -12,7 +12,6 @@ const AlbumDetails = (album)=>{
     const [error,setError] = useState(null);
     const [data,setData] = useState([]);
     const [tracks,setTracks] = useState([])
-    console.log(albumId)
     useEffect(() => {
         const spotify = Credentials();
         const auth = new Buffer(spotify.ClientId + ':' + spotify.ClientSecret)
@@ -37,7 +36,7 @@ const AlbumDetails = (album)=>{
                 .then(response=>{
                     setData(response.data)
                     setTracks(response.data.tracks.items)
-                    console.log(response.data.tracks.items)
+                    console.log(response.data)
                     setLoading(false)
                 })
                 .catch(error=>{
