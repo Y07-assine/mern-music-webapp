@@ -62,7 +62,6 @@ const Album = ()=>{
           })
           .then(res =>{
               setToken(res.data.access_token);
-              console.log(res.data.access_token)
               axios
                 .get(albumURL)
                 .then(albumres =>{
@@ -76,7 +75,6 @@ const Album = ()=>{
                         })
                         .then(response=>{
                             setData(data=>[...data,response.data])
-                            console.log(response.data)
                             setLoading(false)
                         })
                         .catch(error=>{

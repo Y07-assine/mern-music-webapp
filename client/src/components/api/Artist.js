@@ -9,7 +9,8 @@ const Artist = (artist)=>{
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [album,setAlbum]=useState([]);
-    const [data,setdata] = useState()
+    const [data,setData] = useState([]);
+    const [followers,setFollowers] = useState();
 
 
     useEffect(() => {
@@ -48,11 +49,11 @@ const Artist = (artist)=>{
                         'Authorization':'Bearer ' + token
                     }
                 })
-                .then(res=>{
-                    setdata(res.data)
-                    console.log(data)
+                .then(response=>{
+                    setData(response.data)
+                    setFollowers(response.data.followers.total)
                     setLoading(false)
-                    
+                
                 })
                 .catch(error=>{
                     setError(error)
@@ -63,11 +64,31 @@ const Artist = (artist)=>{
             setError(error)
         });
     }, []);
-    
+    console.log(album)
+    console.log(data)
+    const sectionStyle = {
+        background: "linear-gradient(white, black)",
+        background : "#000 url("+(data.images ? data.images[1].url : null) + ")" +"no-repeat center center/cover"
+    };
     return(
         <>
             <Header />
-            
+            <section className="artist__details" style={ sectionStyle } >
+                <div className="container">
+                <div className="row header_with_cover_artist">
+                    <div className=" artist__description">
+                        <img src={data.images ? data.images[0].url : null}  />
+                    </div>
+                    <div className=" item-news artist__infos">
+                        <h3 class="artist-title">
+                            <span className="artist__status">{data.type}</span>
+                            <span className="artist__name">{data.name}</span>
+                            <span><span className="followers">{followers}</span> Followers</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            </section>
             <section className="artist__projects">
                 <div className="row top__projects">
                 <h3 class="tracklist border">Popular  Projects</h3>
