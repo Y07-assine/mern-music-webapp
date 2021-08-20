@@ -92,7 +92,7 @@ const Album = ()=>{
               console.log(error);
           })
     }, [])
-
+    console.log(data);
     return(
 
         <section className="albums" id="album">

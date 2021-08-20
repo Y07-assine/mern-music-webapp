@@ -4,3 +4,4 @@ export const newsListURL = `${localhost}/news`;
 export const quoteURL =`${localhost}/quote`;
 export const albumURL =`${localhost}/album`;
 export const videoClipURL =`${localhost}/videoclip`;
+export const createNewsURL = `${localhost}/news/addnews`;

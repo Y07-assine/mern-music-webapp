@@ -11,9 +11,10 @@ const Artist = (artist)=>{
     const [album,setAlbum]=useState([]);
     const [data,setData] = useState([]);
     const [followers,setFollowers] = useState();
-
+    console.log(artistId)
 
     useEffect(() => {
+        console.log('test');
         const spotify = Credentials();
         const auth = new Buffer(spotify.ClientId + ':' + spotify.ClientSecret)
         setLoading(true);
@@ -36,6 +37,7 @@ const Artist = (artist)=>{
                     })
                     .then(res =>{
                         setAlbum(res.data.items)
+                        console.log(res.data.items)
                         setLoading(false)
                     })
                     .catch(error=>{
