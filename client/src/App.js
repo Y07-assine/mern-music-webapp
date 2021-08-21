@@ -5,6 +5,9 @@ import Artist from './components/api/Artist';
 import { BrowserRouter as Router , Switch , Route , useParams ,location} from "react-router-dom";
 import Footer from './components/Footer';
 import AddNews from './components/forms/AddNews';
+import AddQuote from './components/forms/AddQuote';
+import AddAlbum from './components/forms/AddAlbum';
+import AddVideoClip from './components/forms/AddVideoClip';
 
 
 
@@ -17,8 +20,10 @@ const App =() =>{
             <Route  path="/album/:id" component={AlbumDetails} />
             <Route path="/artist/:id" render={(props)=> <Artist {...props} key={Math.random()} />} />
             <Route path="/admin/addnews" component={AddNews} />
+            <Route path="/admin/addquote" component={AddQuote} />
+            <Route path="/admin/addalbum" component={AddAlbum} />
+            <Route path="/admin/addvideoclip" component={AddVideoClip} />
           </Switch>
-          <Footer />
       </Router> 
         </>
     );

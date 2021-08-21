@@ -5,3 +5,6 @@ export const quoteURL =`${localhost}/quote`;
 export const albumURL =`${localhost}/album`;
 export const videoClipURL =`${localhost}/videoclip`;
 export const createNewsURL = `${localhost}/news/addnews`;
+export const createQuoteURL =`${localhost}/quote/addquote`;
+export const createAlbumURL =`${localhost}/album/addalbum`;
+export const createVideoClipURL = `${localhost}/videoclip/addvideoclip`

@@ -13,7 +13,7 @@ const LatestNews = ({title,image,creator,createdAt}) => {
                        <a href="#"><h2 className="text__news font-rale">{title}</h2></a> 
                    </div>
                    <div className="col-sm-8 item-news">
-                       <img src={'/images/'+image} alt="latest news" height={300} width={900}/>
+                       <img src={'/images/'+image} alt="latest news" height={300} width={900} className="latest-news__img"/>
                    </div>
                </div>
            </div>
