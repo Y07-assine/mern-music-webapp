@@ -75,6 +75,7 @@ const Album = ()=>{
                         })
                         .then(response=>{
                             setData(data=>[...data,response.data])
+                            console.log(response.data)
                             setLoading(false)
                         })
                         .catch(error=>{

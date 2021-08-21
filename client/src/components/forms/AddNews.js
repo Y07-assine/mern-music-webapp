@@ -9,10 +9,20 @@ const AddNews=()=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(postData.image)
-        axios.post(createNewsURL,postData)
-            .then(res=>alert(res.data))
-            .catch(err=>{alert(err);console.log(err)});
+        const formData = new FormData();
+        formData.append('title',postData.title);
+        formData.append('creator',postData.creator);
+        formData.append('body',postData.body);
+        formData.append('image',postData.image);
+        formData.append('source',postData.source);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+        axios.post(createNewsURL,formData,config)
+            .then(res=>alert('News is successfully added !'))
+            .catch(err=>alert(err));
        }
     return( 
         <>
@@ -27,14 +37,7 @@ const AddNews=()=>{
                     <input name="body" placeholder="body" onChange={(e)=> setPostData({...postData,body:e.target.value})} /><br/>
                     <label>Image</label>
                     <input name="image" type="file"  onChange={(e)=> 
-                        {
-                            let reader = new FileReader()
-                            reader.readAsDataURL(e.target.files[0]);
-                            reader.onload=(e)=>{
-                                const data={file:e.target.result}
-                                setPostData({...postData,image:data})
-                            }
-                        }
+                                setPostData({...postData,image:e.target.files[0]})
                     } /><br/>
                     <label>Source</label>
                     <input name="source" placeholder="source" onChange={(e)=> setPostData({...postData,source:e.target.value})} /><br/>
