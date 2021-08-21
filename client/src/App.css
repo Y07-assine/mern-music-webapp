@@ -358,8 +358,14 @@ color: #fffb06;
 text-transform: uppercase;
 }
 .item__album{
-  width: 95% !important;
-  margin-right: 20px;
+  position: relative;
+    display: block;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 100%;
+    width: 95% !important;
+    overflow: hidden;
+    box-shadow: 0 16px 32px 0 var(rgb(241, 241, 241), rgba(0,22,43,0.08));
 }
 .album-list{
   display: flex;
@@ -585,6 +591,7 @@ text-transform: uppercase;
           grid-template-columns: 1fr;
       }
     }
+    
 .card {
   cursor: pointer;
   background-color: transparent;
