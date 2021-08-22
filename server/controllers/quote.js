@@ -11,6 +11,7 @@ export const getQuotes = (req,res)=>{
 }
 
 export const addQuote = (req,res)=>{
+    if(!req.userId) return res.json({message:'Unauthenticated'});
     const newQuote = new quote(req.body);
     newQuote.save()
         .then((response)=>{

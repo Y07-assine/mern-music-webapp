@@ -12,6 +12,7 @@ export const getNews = (req,res)=>{
 }
 
 export const addNews = (req,res) =>{
+    if(!req.userId) return res.json({message:'Unauthenticated'});
     const Newnews = new news({
         title:req.body.title,
         creator:req.body.creator,

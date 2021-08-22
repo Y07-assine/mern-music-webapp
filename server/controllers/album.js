@@ -12,6 +12,7 @@ export const getAlbum = (req,res)=>{
 }
 
 export const addAlbum = (req,res)=>{
+    if(!req.userId) return res.json({message:'Unauthenticated'});
     const newAlbum = new album(req.body);
     newAlbum.save()
         .then((response)=>{

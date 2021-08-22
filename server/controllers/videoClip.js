@@ -11,6 +11,7 @@ export const getVideoClip =(req,res)=>{
 }
 
 export const addvideoClip = (req,res)=>{
+    if(!req.userId) return res.json({message:'Unauthenticated'});
     const newVideoClip = new videoClip(req.body);
     newVideoClip.save()
         .then((response)=>{
