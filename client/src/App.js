@@ -8,6 +8,8 @@ import AddNews from './components/forms/AddNews';
 import AddQuote from './components/forms/AddQuote';
 import AddAlbum from './components/forms/AddAlbum';
 import AddVideoClip from './components/forms/AddVideoClip';
+import Auth from './components/forms/Auth';
+import {UserContextProvider} from './components/contexts/UserContext';
 
 
 
@@ -19,10 +21,15 @@ const App =() =>{
             <Route exact path="/" component={Home} />
             <Route  path="/album/:id" component={AlbumDetails} />
             <Route path="/artist/:id" render={(props)=> <Artist {...props} key={Math.random()} />} />
-            <Route path="/admin/addnews" component={AddNews} />
-            <Route path="/admin/addquote" component={AddQuote} />
-            <Route path="/admin/addalbum" component={AddAlbum} />
-            <Route path="/admin/addvideoclip" component={AddVideoClip} />
+            
+            <UserContextProvider>
+              <Route path="/admin" component={Auth} />
+              <Route path="/admin/addnews" component={AddNews} />
+              <Route path="/admin/addquote" component={AddQuote} />
+              <Route path="/admin/addalbum" component={AddAlbum} />
+              <Route path="/admin/addvideoclip" component={AddVideoClip} />
+            </UserContextProvider>
+            
           </Switch>
       </Router> 
         </>
