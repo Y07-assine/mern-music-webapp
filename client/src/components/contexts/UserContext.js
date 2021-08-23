@@ -7,21 +7,28 @@ const UserContext = createContext({});
 const UserContextProvider = (props)=>{
     const [user,setUser] = useState(null);
 
-    const signin = (formData,history) =>async()=>{
+    const signin = (formData,history) =>{
         try{
-            const data = await axios.post(signInURL,formData);
-
-            localStorage.setItem('profile',JSON.stringify(data));
-            setUser(data);
+            let data ='';
+            axios.post(signInURL,formData)
+                .then(res=> {
+                    console.log(res.data)
+                    data=res.data;
+                    localStorage.setItem('profile',JSON.stringify(data));
+                    setUser(data);
+                });
+            
             history.push('/');
         }catch(error){
             console.log(error);
         }
     };
 
-    const signup = (formData,history)=>async()=>{
+    const signup = (formData,history)=>{
         try {
-            const data = await axios.post(signUpURL,formData);
+            let data='';
+            axios.post(signUpURL,formData)
+                .then(res=>{console.log(res.data); data=res.data});
             console.log(data)
             localStorage.setItem('profile',JSON.stringify(data));
             setUser(data);

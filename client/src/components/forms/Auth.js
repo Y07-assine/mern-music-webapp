@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/UserContext';
 
 const Auth =()=>{
     const {signin,signup,signout} = useAuth();
-    const isSignup = true;
+    const isSignup = false;
     const [showPassword,setShowPassword] = useState(false);
     const [formData,setformData] = useState({firstname:'',lastname:'',email:'',password:'',confirmedPassword:''});
     const history = useHistory();
@@ -15,7 +15,9 @@ const Auth =()=>{
     }
     const handleShowPassword = ()=>setShowPassword(!showPassword);
     const handleSubmit = (e)=>{
+        e.preventDefault();
         if(isSignup){
+            console.log('test');
             signup(formData,history);
         }else{
             signin(formData,history);
