@@ -5,8 +5,11 @@ import {createAlbumURL} from '../../constant';
 
 const AddAlbum = ()=>{
     const [postData,setPostData] = useState({name:'',albumId:''});
+    const headers = {
+        'Authorization':`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+    };
     const handleSubmit=(e)=>{
-    axios.post(createAlbumURL,postData)
+    axios.post(createAlbumURL,postData,{headers})
         .then(res=>alert('News is successfully added !'))
         .catch(err=>alert(err));
     }

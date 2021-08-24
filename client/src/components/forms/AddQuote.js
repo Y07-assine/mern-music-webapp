@@ -5,8 +5,11 @@ import {createQuoteURL} from '../../constant';
 
 const AddQuote = ()=>{
     const [postData,setPostData] = useState({quote:'',author:''});
+    const headers = {
+        'Authorization':`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+    };
     const handleSubmit=(e)=>{
-    axios.post(createQuoteURL,postData)
+    axios.post(createQuoteURL,postData,{headers})
         .then(res=>alert('News is successfully added !'))
         .catch(err=>alert(err));
     }

@@ -5,8 +5,11 @@ import {createVideoClipURL} from '../../constant';
 
 const AddVideoClip = ()=>{
     const [postData,setPostData] = useState({name:'',youtubeId:''});
+    const headers = {
+        'Authorization':`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+    };
     const handleSubmit=(e)=>{
-    axios.post(createVideoClipURL,postData)
+    axios.post(createVideoClipURL,postData,{headers})
         .then(res=>alert('News is successfully added !'))
         .catch(err=>alert(err));
     }

@@ -16,7 +16,8 @@ const AddNews=()=>{
         formData.append('source',postData.source);
         const config = {
             headers: {
-                'content-type': 'multipart/form-data'
+                'content-type': 'multipart/form-data',
+                'Authorization':`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
             }
         };
         axios.post(createNewsURL,formData,config)
