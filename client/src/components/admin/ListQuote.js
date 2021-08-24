@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const ListQuote = ()=>{
     const [loading,setLoading] = useState(false);
@@ -45,6 +46,7 @@ const ListQuote = ()=>{
             },
         },
     }))(TableRow);
+
     return (
     <div className="container">
         <TableContainer component={Paper}>
@@ -53,6 +55,7 @@ const ListQuote = ()=>{
                 <TableRow>
                 <StyledTableCell>Quote</StyledTableCell>
                 <StyledTableCell >Author</StyledTableCell>
+                <StyledTableCell ></StyledTableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -62,6 +65,7 @@ const ListQuote = ()=>{
                     {row.quote}
                     </StyledTableCell>
                     <StyledTableCell >{row.author}</StyledTableCell>
+                    <StyledTableCell onClick ><DeleteIcon /></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>

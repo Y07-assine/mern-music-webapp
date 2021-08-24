@@ -25,7 +25,7 @@ const App =() =>{
             
             <UserContextProvider>
               <Route path="/admin/auth" component={Auth} />
-              <ProtectedRoute path="/admin" component={Admin} />
+              <ProtectedRoute exact path="/admin" component={Admin} />
               <ProtectedRoute path="/admin/addnews" component={AddNews} />
               <ProtectedRoute path="/admin/addquote" component={AddQuote} />
               <ProtectedRoute path="/admin/addalbum" component={AddAlbum} />

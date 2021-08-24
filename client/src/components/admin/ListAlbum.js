@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const ListAlbum = ()=>{
     const [loading,setLoading] = useState(false);
@@ -53,6 +54,7 @@ const ListAlbum = ()=>{
                 <TableRow>
                 <StyledTableCell>Album Name</StyledTableCell>
                 <StyledTableCell >Album ID</StyledTableCell>
+                <StyledTableCell ></StyledTableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -62,6 +64,7 @@ const ListAlbum = ()=>{
                     {row.name}
                     </StyledTableCell>
                     <StyledTableCell >{row.albumId}</StyledTableCell>
+                    <StyledTableCell ><DeleteIcon /></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>

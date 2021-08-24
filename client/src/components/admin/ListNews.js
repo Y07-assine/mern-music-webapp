@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const ListNews = ()=>{
@@ -57,6 +58,7 @@ const ListNews = ()=>{
                 <StyledTableCell align="right">Creator</StyledTableCell>
                 <StyledTableCell align="right">Source</StyledTableCell>
                 <StyledTableCell align="right">Image</StyledTableCell>
+                <StyledTableCell ></StyledTableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -69,6 +71,7 @@ const ListNews = ()=>{
                     <StyledTableCell align="right">{row.creator}</StyledTableCell>
                     <StyledTableCell align="right">{row.source}</StyledTableCell>
                     <StyledTableCell align="right">{row.image}</StyledTableCell>
+                    <StyledTableCell align="right"><DeleteIcon/></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>
