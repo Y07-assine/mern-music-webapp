@@ -10,6 +10,7 @@ import AddAlbum from './components/forms/AddAlbum';
 import AddVideoClip from './components/forms/AddVideoClip';
 import Auth from './components/forms/Auth';
 import {UserContextProvider} from './components/contexts/UserContext';
+import { ProtectedRoute } from './components/protected.route';
 
 
 
@@ -23,11 +24,11 @@ const App =() =>{
             <Route path="/artist/:id" render={(props)=> <Artist {...props} key={Math.random()} />} />
             
             <UserContextProvider>
-              <Route path="/admin" component={Auth} />
-              <Route path="/admin/addnews" component={AddNews} />
-              <Route path="/admin/addquote" component={AddQuote} />
-              <Route path="/admin/addalbum" component={AddAlbum} />
-              <Route path="/admin/addvideoclip" component={AddVideoClip} />
+              <Route path="/admin/auth" component={Auth} />
+              <ProtectedRoute path="/admin/addnews" component={AddNews} />
+              <ProtectedRoute path="/admin/addquote" component={AddQuote} />
+              <ProtectedRoute path="/admin/addalbum" component={AddAlbum} />
+              <ProtectedRoute path="/admin/addvideoclip" component={AddVideoClip} />
             </UserContextProvider>
             
           </Switch>

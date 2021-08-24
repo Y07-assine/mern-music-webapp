@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/UserContext';
 
 const Auth =()=>{
     const {signin,signup,signout} = useAuth();
-    const isSignup = false;
+    const [isSignup,setIsSignup] = useState(false);
     const [showPassword,setShowPassword] = useState(false);
     const [formData,setformData] = useState({firstname:'',lastname:'',email:'',password:'',confirmedPassword:''});
     const history = useHistory();
@@ -17,11 +17,13 @@ const Auth =()=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(isSignup){
-            console.log('test');
             signup(formData,history);
         }else{
             signin(formData,history);
         }
+    }
+    const switchMode = ()=>{
+        setIsSignup(!isSignup);
     }
     return(
         <Container component="main" maxWidth="xs">
@@ -49,6 +51,8 @@ const Auth =()=>{
                         {isSignup && <><label>Confimed Password</label><input name="confirmedPassword"  onChange={handleChange} type="password" /></>}
                     <Button type="submit" fullWidth variant="contained" color="primary">{isSignup ? 'Sign Up':'Sign In'}</Button>
                 </form>
+                {isSignup ? <p>Already have an account?<span onClick={switchMode}>SIGN IN</span></p> : <p>Don't have an account ?<span onClick={switchMode}>SIGN UP</span></p>}
+                
                 </div>
             </Paper>
         </Container>

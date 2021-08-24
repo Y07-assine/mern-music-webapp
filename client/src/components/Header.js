@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import Icon from './Icon';
+import { useAuth } from './contexts/UserContext';
 
 
 
@@ -7,6 +8,16 @@ import Icon from './Icon';
      const [click,setClick]= useState(false);
      const handleClick = ()=>{
          setClick(!click);
+     }
+     const pathname=window.location.pathname;
+     const user = localStorage.getItem('profile');
+     const {signin,signout} = useAuth();
+     const handleAuth=()=>{
+        if(user){
+            signout();
+        }else{
+            window.location.replace('/admin/auth');
+        }
      }
     return (
         <header className="header">
@@ -22,6 +33,7 @@ import Icon from './Icon';
                             <a href="#" className="item">News</a>
                             <a href="#" className="item">New Arrivals</a>
                             <a href="#" className="item">Support</a>
+                            {pathname.split('/')[1]==='admin' && <button onClick={handleAuth}>{user ? 'Logout' :'SignIn'}</button>}
                         </div>
                     </div>
                 </div>

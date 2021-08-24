@@ -42,11 +42,14 @@ const UserContextProvider = (props)=>{
         localStorage.clear();
         setUser(null);
     }
-
+    const isAuthenticated=()=>{
+        return localStorage.getItem('profile');
+    }
     const authContextValue = {
         signin,
         signup,
-        signout
+        signout,
+        isAuthenticated
     }
 
     return(
