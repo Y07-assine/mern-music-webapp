@@ -11,7 +11,7 @@ import AddVideoClip from './components/forms/AddVideoClip';
 import Auth from './components/forms/Auth';
 import {UserContextProvider} from './components/contexts/UserContext';
 import { ProtectedRoute } from './components/protected.route';
-
+import Admin from './components/admin/index';
 
 
 const App =() =>{
@@ -25,6 +25,7 @@ const App =() =>{
             
             <UserContextProvider>
               <Route path="/admin/auth" component={Auth} />
+              <ProtectedRoute path="/admin" component={Admin} />
               <ProtectedRoute path="/admin/addnews" component={AddNews} />
               <ProtectedRoute path="/admin/addquote" component={AddQuote} />
               <ProtectedRoute path="/admin/addalbum" component={AddAlbum} />
