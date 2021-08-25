@@ -710,6 +710,10 @@ text-transform: uppercase;
   margin: 2rem;
   background-color: rgb(250, 250, 250);
 }
+.delete{
+  border-radius: 0.5rem;
+  background-color: rgb(226, 71, 71);
+}
 tbody {
   display: table-row-group;
   vertical-align: middle;

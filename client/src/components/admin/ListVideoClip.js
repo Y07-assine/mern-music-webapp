@@ -46,6 +46,11 @@ const ListVideoClip = ()=>{
             },
         },
     }))(TableRow);
+    const handleDelete = (id)=>{
+        axios.delete(`${videoClipURL}/${id}`)
+            .then(res=>{alert('item is successfully deleted !') ;window.location.reload();})
+            .catch(error=>console.log(error));
+    }
     return (
     <div className="container">
         <TableContainer component={Paper}>
@@ -64,7 +69,7 @@ const ListVideoClip = ()=>{
                     {row.name}
                     </StyledTableCell>
                     <StyledTableCell >{row.youtubeId}</StyledTableCell>
-                    <StyledTableCell ><DeleteIcon /></StyledTableCell>
+                    <StyledTableCell ><button className="delete" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) handleDelete(row._id) } }><DeleteIcon /></button></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>

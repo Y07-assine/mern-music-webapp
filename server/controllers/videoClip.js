@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import videoClip from "../models/videoClip.js";
 
 export const getVideoClip =(req,res)=>{
@@ -20,4 +21,14 @@ export const addvideoClip = (req,res)=>{
         .catch((error)=>{
             res.status(409).json({message:error.message})
         })
+}
+
+export const deleteVideoClip = async (req,res)=>{
+    const {id} = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No item with id:${id}`);
+
+    await videoClip.findByIdAndRemove(id);
+
+    res.json({message:"Item deleted successfully !"});
 }
