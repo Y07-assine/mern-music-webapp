@@ -47,8 +47,13 @@ const ListNews = ()=>{
             },
         },
     }))(TableRow);
+    const handleDelete = (id)=>{
+        axios.delete(`${newsListURL}/${id}`)
+            .then(res=>{alert('item is successfully deleted !') ;window.location.reload();})
+            .catch(error=>console.log(error));
+    }
     return (
-    <div className="container">
+    <div className="container listData">
         <TableContainer component={Paper}>
             <Table  aria-label="customized table">
             <TableHead>
@@ -71,12 +76,13 @@ const ListNews = ()=>{
                     <StyledTableCell align="right">{row.creator}</StyledTableCell>
                     <StyledTableCell align="right">{row.source}</StyledTableCell>
                     <StyledTableCell align="right">{row.image}</StyledTableCell>
-                    <StyledTableCell align="right"><DeleteIcon/></StyledTableCell>
+                    <StyledTableCell align="right"><button className="delete" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) handleDelete(row._id) } }><DeleteIcon /></button></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>
             </Table>
         </TableContainer>
+        <button className="addData"><a href="/admin/addnews">Add News</a></button>
     </div>
   );
 }

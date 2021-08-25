@@ -52,7 +52,7 @@ const ListVideoClip = ()=>{
             .catch(error=>console.log(error));
     }
     return (
-    <div className="container">
+    <div className="container listData">
         <TableContainer component={Paper}>
             <Table  aria-label="customized table">
             <TableHead>
@@ -75,6 +75,7 @@ const ListVideoClip = ()=>{
             </TableBody>
             </Table>
         </TableContainer>
+        <button className="addData"><a href="/admin/addvideoclip">Add VideoClip</a></button>
     </div>
     )
 }

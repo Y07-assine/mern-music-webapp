@@ -46,9 +46,13 @@ const ListQuote = ()=>{
             },
         },
     }))(TableRow);
-
+    const handleDelete = (id)=>{
+        axios.delete(`${quoteURL}/${id}`)
+            .then(res=>{alert('item is successfully deleted !') ;window.location.reload();})
+            .catch(error=>console.log(error));
+    }
     return (
-    <div className="container">
+    <div className="container listData">
         <TableContainer component={Paper}>
             <Table  aria-label="customized table">
             <TableHead>
@@ -65,12 +69,13 @@ const ListQuote = ()=>{
                     {row.quote}
                     </StyledTableCell>
                     <StyledTableCell >{row.author}</StyledTableCell>
-                    <StyledTableCell onClick ><DeleteIcon /></StyledTableCell>
+                    <StyledTableCell onClick ><button className="delete" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) handleDelete(row._id) } }><DeleteIcon /></button></StyledTableCell>
                 </StyledTableRow>
                 ))}
             </TableBody>
             </Table>
         </TableContainer>
+        <button className="addData"><a href="/admin/addquote">Add Quote</a></button>
     </div>
     )
 }
