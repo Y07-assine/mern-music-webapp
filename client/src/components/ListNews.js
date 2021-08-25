@@ -3,7 +3,7 @@ import axios from 'axios';
 import News from './News';
 import LatestNews from './LatestNews';
 import { newsListURL } from '../constant';
-import { Loader } from 'semantic-ui-react';
+import {CircularProgress} from '@material-ui/core';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
@@ -65,9 +65,9 @@ const ListNews = ()=>{
         }
     return(
         <>
-        { !loading && (
-            <Loader active inline='centered' />
-        )}
+        { loading && (
+             <div className="progress"><CircularProgress /></div>
+            )}
             <LatestNews title={latest.title} image={latest.image} creator={latest.creator} createdAt={latest.createdAt} />
             <section className="py-5 news" id="news">
                 <div className="container">

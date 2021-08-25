@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import { Credentials } from './Credentials'
 import Header from '../Header'
+import {CircularProgress} from '@material-ui/core';
 
 const Artist = (artist)=>{
     const artistId = artist.match.params.id;
@@ -75,6 +76,9 @@ const Artist = (artist)=>{
     return(
         <>
             <Header />
+            { loading && (
+             <div className="progress"><CircularProgress /></div>
+            )}
             <section className="artist__details" style={ sectionStyle } >
                 <div className="container">
                 <div className="row header_with_cover_artist">

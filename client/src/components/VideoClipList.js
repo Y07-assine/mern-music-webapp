@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import Youtubeclip from './api/Youtubeclip'
-import { Loader } from 'semantic-ui-react'
+import {CircularProgress} from '@material-ui/core';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import "slick-carousel/slick/slick-theme.css"
@@ -65,14 +64,16 @@ const VideoClipsList = ()=>{
         }
 
     return(
+        <>
+        
         <section className="clips" id="clips">
             <div className="container">
                 <div className="lgfgYE clip ">
                     <span className="title">LAST CLIPS</span>
                 </div> 
                 { loading && (
-                    <Loader active inline='centered' />
-                )}
+                     <div className="progress"><CircularProgress /></div>
+                    )}
                 <div className="container">
                 <Slider {...settings}>
                 {data.map((video)=>(
@@ -84,6 +85,7 @@ const VideoClipsList = ()=>{
                 </div>
             </div>
         </section>
+        </>
     )
 
 }

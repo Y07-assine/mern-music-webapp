@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import { Credentials } from './Credentials'
-
+import {CircularProgress} from '@material-ui/core';
 const Playlist=()=>{
 
     const [token,setToken] = useState('');
@@ -33,9 +33,11 @@ const Playlist=()=>{
                 })
                 .then(playlistresponse =>{
                     setData(playlistresponse.data.items)
+                    setLoading(false);
                 })
                 .catch(error=>{
-                    setError(error)
+                    setError(error);
+                    setLoading(false);
                 });
             axios('https://api.spotify.com/v1/playlists/37i9dQZF1DWYtEjm4ihp5w/images',{
                 method:'GET',
@@ -45,11 +47,12 @@ const Playlist=()=>{
                     }
                     })
                     .then(imageresponse =>{
-                        setImage(imageresponse.data[0].url)
-                        console.log(image)
+                        setImage(imageresponse.data[0].url);
+                        setLoading(false);
                     })
                     .catch(error=>{
-                        setError(error)
+                        setError(error);
+                        setLoading(false);
                     });
             })
           .catch((error)=>{
@@ -59,6 +62,11 @@ const Playlist=()=>{
     }, []);
 
     return(
+        <>
+        { loading && (
+            <div className="progress"><CircularProgress /></div>
+            
+            )}
         <section className="py-5 news" id="playlist">
             <div className="classement__item row card ">
             <div className='card-inner'>
@@ -93,7 +101,7 @@ const Playlist=()=>{
             </div>
             </div>
         </section>
-
+        </>
     )
 }
 

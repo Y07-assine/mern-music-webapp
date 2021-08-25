@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import { albumURL } from '../../constant';
 import { Credentials } from './Credentials';
-import { Loader } from 'semantic-ui-react';
+import {CircularProgress} from '@material-ui/core';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
@@ -76,7 +76,7 @@ const Album = ()=>{
                         .then(response=>{
                             setData(data=>[...data,response.data])
                             console.log(response.data)
-                            setLoading(false)
+                            
                         })
                         .catch(error=>{
                             setError(error)
@@ -87,6 +87,7 @@ const Album = ()=>{
                 .catch(error=>{
                     setError(error)
                 })
+                setLoading(false)
           })
           .catch((error)=>{
               setError(error);
@@ -102,7 +103,7 @@ const Album = ()=>{
                 <span className="title">New arrivals</span>
             </div> 
             { loading && (
-            <Loader active inline='centered' />
+             <div className="progress"><CircularProgress /></div>
             )}
             <Slider {...settings}>        
             {data.map((album)=>(

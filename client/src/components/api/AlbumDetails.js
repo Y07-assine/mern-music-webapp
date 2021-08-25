@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import { Credentials } from './Credentials'
 import Header from '../Header'
+import {CircularProgress} from '@material-ui/core';
 
 
 
@@ -54,6 +55,9 @@ const AlbumDetails = (album)=>{
     return(
         <>
         <Header />
+        { loading && (
+             <div className="progress"><CircularProgress /></div>
+            )}
         <section className="album__details" style={ sectionStyle } >
             <div className="container">
             <div className="cover header_with_cover_art">

@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import axios from 'axios';
 import { quoteURL } from '../constant';
-import { Loader } from 'semantic-ui-react';
+import {CircularProgress} from '@material-ui/core';
 
 const Quote = () =>{
 
@@ -26,8 +26,8 @@ const Quote = () =>{
     return(
         <>
         { loading && (
-            <Loader active inline='centered' />
-        )}
+             <div className="progress"><CircularProgress /></div>
+            )}
         <section className="py-5 news">
             <div className="quote__section">
                 <div className="quote__section-content">
