@@ -6,7 +6,6 @@ import {CircularProgress} from '@material-ui/core';
 
 const Artist = (artist)=>{
     const artistId = artist.match.params.id;
-    const [token,setToken] = useState('');
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [album,setAlbum]=useState([]);
@@ -15,7 +14,6 @@ const Artist = (artist)=>{
     console.log(artistId)
 
     useEffect(() => {
-        console.log('test');
         const spotify = Credentials();
         const auth = new Buffer(spotify.ClientId + ':' + spotify.ClientSecret)
         setLoading(true);
@@ -28,17 +26,13 @@ const Artist = (artist)=>{
               method:'POST'
           })
           .then(res =>{
-              setToken(res.data.access_token);
-                axios(`https://api.spotify.com/v1/artists/${artistId}/albums`,{
-                    method:'GET',
-                    headers:{
-                        'Content-Type':'application/json',
-                        'Authorization':'Bearer ' + token
-                    }
-                    })
-                    .then(res =>{
-                        setAlbum(res.data.items)
-                        console.log(res.data.items)
+              const headers={
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + res.data.access_token
+                };
+                axios.get(`https://api.spotify.com/v1/artists/${artistId}/albums`,{headers})
+                    .then(albums =>{
+                        setAlbum(albums.data.items)
                         setLoading(false)
                     })
                     .catch(error=>{
@@ -49,7 +43,7 @@ const Artist = (artist)=>{
                     method:'GET',
                     headers:{
                         'Content-Type':'application/json',
-                        'Authorization':'Bearer ' + token
+                        'Authorization':'Bearer ' + res.data.access_token
                     }
                 })
                 .then(response=>{
@@ -67,8 +61,6 @@ const Artist = (artist)=>{
             setError(error)
         });
     }, []);
-    console.log(album)
-    console.log(data)
     const sectionStyle = {
         background: "linear-gradient(white, black)",
         background : "#000 url("+(data.images ? data.images[1].url : null) + ")" +"no-repeat center center/cover"

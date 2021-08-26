@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 
 
 const Album = ()=>{
-    const [token,setToken] = useState('');
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null);
     const [data,setData] = useState([]);
@@ -61,7 +60,6 @@ const Album = ()=>{
               method:'POST'
           })
           .then(res =>{
-              setToken(res.data.access_token);
               axios
                 .get(albumURL)
                 .then(albumres =>{
@@ -70,18 +68,16 @@ const Album = ()=>{
                             method:'GET',
                             headers:{
                                 'Content-Type':'application/json',
-                                'Authorization':'Bearer ' + token
+                                'Authorization':'Bearer ' + res.data.access_token
                             }
                         })
                         .then(response=>{
                             setData(data=>[...data,response.data])
-                            console.log(response.data)
                             
                         })
                         .catch(error=>{
                             setError(error)
                         })
-                        console.log(id.albumId)
                     })
                 })
                 .catch(error=>{
@@ -91,10 +87,8 @@ const Album = ()=>{
           })
           .catch((error)=>{
               setError(error);
-              console.log(error);
           })
     }, [])
-    console.log(data);
     return(
 
         <section className="albums" id="album">
