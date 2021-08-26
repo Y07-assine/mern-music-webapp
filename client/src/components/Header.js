@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Icon from './Icon';
 import { useAuth } from './contexts/UserContext';
+import decode from 'jwt-decode';
 
 
 
@@ -10,7 +11,7 @@ import { useAuth } from './contexts/UserContext';
          setClick(!click);
      }
      const pathname=window.location.pathname;
-     const user = localStorage.getItem('profile');
+     const user = JSON.parse(localStorage.getItem('profile'));
      const {signin,signout} = useAuth();
      const handleAuth=()=>{
         if(user){
@@ -19,6 +20,13 @@ import { useAuth } from './contexts/UserContext';
             window.location.replace('/admin/auth');
         }
      }
+     useEffect(() => {
+         const token = user?.token;
+         if(token){
+             const decodeToken = decode(token);
+             if(decodeToken.exp * 1000 < new Date().getTime()) signout();
+         }
+     }, [])
     return (
         <header className="header">
             <div className="container nav">
