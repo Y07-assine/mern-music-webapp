@@ -33,6 +33,7 @@ const App =() =>{
             </UserContextProvider>
             
           </Switch>
+          <Footer />
       </Router> 
         </>
     );
