@@ -68,9 +68,9 @@ const Artist = (artist)=>{
     return(
         <>
             <Header />
-            { loading && (
+            { loading ? (
              <div className="progress"><CircularProgress /></div>
-            )}
+            ):<>
             <section className="artist__details" style={ sectionStyle } >
                 <div className="container">
                 <div className="row header_with_cover_artist">
@@ -89,10 +89,10 @@ const Artist = (artist)=>{
             </section>
             <section className="artist__projects">
                 <div className="row top__projects">
-                <h3 class="tracklist border">Popular  Projects</h3>
+                <h3 class="tracklist border">Popular {data.name}'s Projects </h3>
                     <div className="grid-container">
                         {album.map((project)=>(
-                            <div>
+                            <div className="artist__card" >
                             <img src={project.images[0].url} className="image__project" />
                             <div class="text-center">
                                 <h3 class="album-title">
@@ -106,7 +106,7 @@ const Artist = (artist)=>{
                     </div>
                 </div>
             </section>
-
+            </>}
         </>
     )
 }

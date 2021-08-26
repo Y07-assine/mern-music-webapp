@@ -33,23 +33,23 @@ const Auth =()=>{
                 </Avatar>
                 <Typography variant="h5">{isSignup ? 'Sign Up':'Sign In'}</Typography>
                 <div className="form">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="auth">
                         {
                             isSignup && (
                                 <>  
-                                    <label>First Name</label>
+                                    <label>First Name</label><br/>
                                     <input name="firstname"  onChange={handleChange} /><br />
-                                    <label>Last Name</label>
+                                    <label>Last Name</label><br/>
                                     <input name="lastname"  onChange={handleChange} /><br/>
                                 </>
                             )
                         }
-                        <label>Email Address</label>
+                        <label>Email Address</label><br/>
                         <input name="email" type="email" onChange={handleChange} /><br/>
-                        <label>Password</label>
+                        <label>Password</label><br/>
                         <input name="password" onChange={handleChange} type={showPassword ? "test":"password"}  /><br/>
-                        {isSignup && <><label>Confimed Password</label><input name="confirmedPassword"  onChange={handleChange} type="password" /></>}
-                    <Button type="submit" fullWidth variant="contained" color="primary">{isSignup ? 'Sign Up':'Sign In'}</Button>
+                        {isSignup && <><label>Confimed Password</label><br/><input name="confirmedPassword"  onChange={handleChange} type="password" /></>}
+                    <Button type="submit"  variant="contained" color="primary">{isSignup ? 'Sign Up':'Sign In'}</Button>
                 </form>
                 {isSignup ? <p>Already have an account?<span onClick={switchMode}>SIGN IN</span></p> : <p>Don't have an account ?<span onClick={switchMode}>SIGN UP</span></p>}
                 
