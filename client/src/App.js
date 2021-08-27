@@ -12,12 +12,15 @@ import Auth from './components/forms/Auth';
 import {UserContextProvider} from './components/contexts/UserContext';
 import { ProtectedRoute } from './components/protected.route';
 import Admin from './components/admin/index';
+import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 
 const App =() =>{
     return(
         <>
         <Router>
+          <ScrollToTop /> 
           <Switch>
             <Route exact path="/" component={Home} />
             <Route  path="/album/:id" component={AlbumDetails} />
@@ -33,6 +36,7 @@ const App =() =>{
             </UserContextProvider>
             
           </Switch>
+          <ScrollToTopButton />
           <Footer />
       </Router> 
         </>

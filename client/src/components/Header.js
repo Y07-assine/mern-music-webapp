@@ -21,11 +21,14 @@ import decode from 'jwt-decode';
         }
      }
      useEffect(() => {
-         const token = user?.token;
-         if(token){
-             const decodeToken = decode(token);
-             if(decodeToken.exp * 1000 < new Date().getTime()) signout();
+         if(pathname.split('/')[1]==='admin'){
+            const token = user?.token;
+            if(token){
+                const decodeToken = decode(token);
+                if(decodeToken.exp * 1000 < new Date().getTime()) signout();
+            }
          }
+         
      }, [])
     return (
         <header className="header">

@@ -87,9 +87,9 @@ const Artist = (artist)=>{
                 </div>
             </div>
             </section>
-            <section className="artist__projects">
+            <section >
                 <div className="row top__projects">
-                <h3 class="tracklist border">Popular {data.name}'s Projects </h3>
+                <h3 class="projects">Popular {data.name}'s Projects </h3>
                     <div className="grid-container">
                         {album.map((project)=>(
                             <div className="artist__card" >
