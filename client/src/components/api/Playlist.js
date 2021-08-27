@@ -63,44 +63,46 @@ const Playlist=()=>{
 
     return(
         <>
-        { loading && (
+        { loading ? (
             <div className="progress"><CircularProgress /></div>
             
-            )}
-        <section className="py-5 news" id="playlist">
-            <div className="classement__item row card ">
-            <div className='card-inner'>
-            <div className='card-front'>
-                <img src={image} />
-                </div>
-                <div className='card-back'>
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">TITLE</th>
-                        <th scope="col">ARTISTE</th>
-                        <th scope="col">ALBUM</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {data.map((item)=>(
-                          <tr>
-                          <td><img src={item.track.album.images[0].url} className="image_item" /></td>
-                          <td> {item.track.name}</td>
-                          <td>{item.track.artists.map((artist)=>(
-                              <span>{artist.name}</span>
-                          ))}
-                          </td>
-                          <td>{item.track.album.name}</td>
-                          </tr>
-                      ))} 
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-        </section>
+            ):(<>
+                <section className="py-5 news" id="playlist">
+                    <div className="classement__item row card ">
+                    <div className='card-inner'>
+                    <div className='card-front'>
+                        <img src={image} />
+                        </div>
+                        <div className='card-back'>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">ARTISTE</th>
+                                <th scope="col">ALBUM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {data.map((item)=>(
+                                <tr>
+                                <td><img src={item.track.album.images[0].url} className="image_item" /></td>
+                                <td> {item.track.name}</td>
+                                <td>{item.track.artists.map((artist)=>(
+                                    <span>{artist.name}</span>
+                                ))}
+                                </td>
+                                <td>{item.track.album.name}</td>
+                                </tr>
+                            ))} 
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            </>)}
+        
         </>
     )
 }

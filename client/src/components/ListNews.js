@@ -64,19 +64,23 @@ const ListNews = ()=>{
         }
     return(
         <>
-        { loading && (
+        { loading ? (
              <div className="progress"><CircularProgress /></div>
+            ):(
+                <>
+                <LatestNews title={latest.title} image={latest.image} creator={latest.creator} createdAt={latest.createdAt} />
+                <section className="py-5 news" id="news">
+                    <div className="container">
+                    <Slider {...settings}>
+                        {data.slice(1).map((news)=>(
+                            <News key={news._id} news={news} />
+                        ))}
+                    </Slider>
+                    </div>
+                </section>
+            </>
             )}
-            <LatestNews title={latest.title} image={latest.image} creator={latest.creator} createdAt={latest.createdAt} />
-            <section className="py-5 news" id="news">
-                <div className="container">
-                <Slider {...settings}>
-                    {data.slice(1).map((news)=>(
-                        <News key={news._id} news={news} />
-                    ))}
-                </Slider>
-                </div>
-            </section>
+            
         </>
     )
 }

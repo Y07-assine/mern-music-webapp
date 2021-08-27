@@ -25,18 +25,20 @@ const Quote = () =>{
 
     return(
         <>
-        { loading && (
+        { loading ? (
              <div className="progress"><CircularProgress /></div>
-            )}
-        <section className="py-5 news">
-            <div className="quote__section">
-                <div className="quote__section-content">
-                    <p>"{data.quote} "</p>
-                    <p className="quote__author">{data.author}, <span className="quote__author-status">Rapper</span></p>
-                </div>
-                <span class="quote__section-label">PUNCHLINE OF THE DAY</span>
-            </div>
-        </section>
+            ):(<>
+                <section className="py-5 news">
+                    <div className="quote__section">
+                        <div className="quote__section-content">
+                            <p>"{data.quote} "</p>
+                            <p className="quote__author">{data.author}, <span className="quote__author-status">Rapper</span></p>
+                        </div>
+                        <span class="quote__section-label">PUNCHLINE OF THE DAY</span>
+                    </div>
+                </section>
+            </>)}
+        
         </>
     )
 }

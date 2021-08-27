@@ -96,32 +96,37 @@ const Album = ()=>{
             <div className="lgfgYE album">
                 <span className="title">New arrivals</span>
             </div> 
-            { loading && (
+            { loading ? (
              <div className="progress"><CircularProgress /></div>
-            )}
-            <Slider {...settings}>        
-            {data.map((album)=>(
-                <div className="item__album">
-                    <Link to={`/album/${album.id}`}>
-                        <img src={album.images[0].url} className="image__album" />
-                    </Link>
-                    <div class="text-center">
-                        <h3 class="album-title">
-                            <span className="album__name">{album.name}</span>
-                            <div className="artists">
-                                {album.artists.map((artist)=>(
-                                    <Link to={`/artist/${artist.id}`} ><span key={artist.id} className="album__artist">{artist.name}</span></Link>
-                                ))}
+            ):(
+            <>
+                <Slider {...settings}>        
+                    {data.map((album)=>(
+                        <div className="item__album">
+                            <Link to={`/album/${album.id}`}>
+                                <img src={album.images[0].url} className="image__album" />
+                            </Link>
+                            <div class="text-center">
+                                <h3 class="album-title">
+                                    <span className="album__name">{album.name}</span>
+                                    <div className="artists">
+                                        {album.artists.map((artist)=>(
+                                            <Link to={`/artist/${artist.id}`} ><span key={artist.id} className="album__artist">{artist.name}</span></Link>
+                                        ))}
+                                    </div>
+                                    <span className="album__date">{album.release_date}</span>
+                                </h3>
                             </div>
-                            <span className="album__date">{album.release_date}</span>
-                        </h3>
-                    </div>
-                    
-                </div>
-            ))}
-            </Slider>
+                            
+                        </div>
+                        ))}
+                </Slider>
+            
+            </>
+            )}
             </div>
-        </section>
+            </section>
+            
     )
 }
 

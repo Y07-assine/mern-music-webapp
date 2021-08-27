@@ -1,12 +1,12 @@
-const localhost ="http://localhost:5000";
+const host ="https://apollo-for-music.herokuapp.com";
 
-export const newsListURL = `${localhost}/news`;
-export const quoteURL =`${localhost}/quote`;
-export const albumURL =`${localhost}/album`;
-export const videoClipURL =`${localhost}/videoclip`;
-export const createNewsURL = `${localhost}/news/addnews`;
-export const createQuoteURL =`${localhost}/quote/addquote`;
-export const createAlbumURL =`${localhost}/album/addalbum`;
-export const createVideoClipURL = `${localhost}/videoclip/addvideoclip`;
-export const signInURL = `${localhost}/user/signin`;
-export const signUpURL = `${localhost}/user/signup`;
+export const newsListURL = `${host}/news`;
+export const quoteURL =`${host}/quote`;
+export const albumURL =`${host}/album`;
+export const videoClipURL =`${host}/videoclip`;
+export const createNewsURL = `${host}/news/addnews`;
+export const createQuoteURL =`${host}/quote/addquote`;
+export const createAlbumURL =`${host}/album/addalbum`;
+export const createVideoClipURL = `${host}/videoclip/addvideoclip`;
+export const signInURL = `${host}/user/signin`;
+export const signUpURL = `${host}/user/signup`;

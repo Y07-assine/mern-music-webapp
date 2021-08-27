@@ -40,10 +40,10 @@ import decode from 'jwt-decode';
                     </div>
                     <div className={click ? 'nav-menu-show open' :'nav-menu-show'}>
                         <div className="menu">
-                            <a href="#" className="item">Home</a>
-                            <a href="#" className="item">News</a>
-                            <a href="#" className="item">New Arrivals</a>
-                            <a href="#" className="item">Support</a>
+                            <a href="/" className="item">NEWS</a>
+                            <a href="/" className="item">ALBUMS</a>
+                            <a href="/" className="item">PLAYLIST</a>
+                            <a href="/" className="item">VIDEOS CLIPS</a>
                             {pathname.split('/')[1]==='admin' && <button onClick={handleAuth}>{user ? 'Logout' :'SignIn'}</button>}
                         </div>
                     </div>
