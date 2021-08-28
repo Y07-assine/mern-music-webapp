@@ -57,6 +57,11 @@ const ListNews = ()=>{
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2
+                },
+                breakpoint: 325,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
                 }
                 
