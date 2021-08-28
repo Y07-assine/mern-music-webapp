@@ -12,6 +12,9 @@ import { Dropdown} from 'semantic-ui-react';
      const toggleHome=()=>{
         scroll.scrollToTop();
     }
+    const closeMenu=()=>{
+        setClick(false);
+    }
     return (
         <header className="header" style={{ background:`url("/images/headerx.jpg")` }} >
             <div className="container nav">
@@ -23,10 +26,10 @@ import { Dropdown} from 'semantic-ui-react';
                     <div className={click ? 'nav-menu-show open' :'nav-menu-show'}>
                         <div className="menu">
                             <ul className="nav__list">
-                                <li className="nav__item"><Link to="news" activeClass="active" spy={true} smooth={true} offset={-200} duration={500} >NEWS</Link></li>
-                                <li className="nav__item"><Link to="albums" activeClass="active" spy={true} smooth={true} offset={-200}  duration={500}  >ALBUMS</Link></li>
-                                <li className="nav__item"><Link to="playlist" activeClass="active" spy={true} smooth={true} offset={-200}  duration={500}  >PLAYLIST</Link></li>
-                                <li className="nav__item"><Link to="clips" activeClass="active" spy={true} smooth={true} offset={-200} duration={500} >VIDEOS CLIP</Link></li>
+                                <li className="nav__item"><Link to="news" activeClass="active" spy={true} smooth={true} offset={-200} duration={500} onClick={closeMenu} >NEWS</Link></li>
+                                <li className="nav__item"><Link to="albums" activeClass="active" spy={true} smooth={true} offset={-200}  duration={500} onClick={closeMenu} >ALBUMS</Link></li>
+                                <li className="nav__item"><Link to="playlist" activeClass="active" spy={true} smooth={true} offset={-200}  duration={500} onClick={closeMenu} >PLAYLIST</Link></li>
+                                <li className="nav__item"><Link to="clips" activeClass="active" spy={true} smooth={true} offset={-200} duration={500} onClick={closeMenu} >VIDEOS CLIP</Link></li>
                             </ul>
                         </div>
                     </div>

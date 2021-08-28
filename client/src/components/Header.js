@@ -25,7 +25,8 @@ import decode from 'jwt-decode';
             const token = user?.token;
             if(token){
                 const decodeToken = decode(token);
-                if(decodeToken.exp * 1000 < new Date().getTime()) signout();
+                console.log('test');
+                if(decodeToken.exp * 1000 < new Date().getTime()) {signout();};
             }
          }
          

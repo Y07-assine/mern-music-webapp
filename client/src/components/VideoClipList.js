@@ -30,39 +30,38 @@ const VideoClipsList = ()=>{
     }, [])
 
     const settings = {
-          dots: true,
-          infinite: true,
-          speed: 300,
-          slidesToShow: 5,
-          slidesToScroll: 4,
-          responsive: [
-              {
-              breakpoint: 1024,
-              settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
-                  infinite: true,
-                  dots: true
-              }
-              },
-              {
-              breakpoint: 600,
-              settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3
-              }
-              },
-              {
-              breakpoint: 480,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2
-              }
-              }
-              
-          ]
-        }
-
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        responsive: [
+            {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+            },
+            {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+            }
+            
+        ]
+    }
     return(
         <>
         
@@ -74,7 +73,7 @@ const VideoClipsList = ()=>{
                 { loading && (
                      <div className="progress"><CircularProgress /></div>
                     )}
-                <div className="container">
+                    <>
                 <Slider {...settings}>
                 {data.map((video)=>(
                     <div className="videoClip">
@@ -82,7 +81,7 @@ const VideoClipsList = ()=>{
                     </div>
                 ))}
                 </Slider>
-                </div>
+                </>
             </div>
         </section>
         </>

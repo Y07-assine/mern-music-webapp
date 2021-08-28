@@ -16,7 +16,7 @@ const Album = ()=>{
     const [data,setData] = useState([]);
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 300,
         slidesToShow: 5,
         slidesToScroll: 5,
